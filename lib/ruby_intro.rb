@@ -63,12 +63,54 @@ def starts_with_consonant?(s)
 end
 
 
-def binary_multiple_of_4? s
-  # YOUR CODE HERE
+def binary_multiple_of_4?(s)
+  binary_multiple=true
+  if s.length==0
+     binary_multiple=false
+  elsif checkIfBinaryIsValid(s)==false
+    binary_multiple=false
+  else
+    c=s.to_i
+    if c%4!=0
+      binary_multiple=false
+    end
+  end
+  return binary_multiple
 end
+
+def checkIfBinaryIsValid(s)
+  binaryvalid=true
+  digits=['0','1','2','3','4','5','6','7','8','9']
+  for i in (0..s.length-1)
+    if !digits.include?(s[i])
+      binaryvalid=false
+      break
+    end
+  end
+  return binaryvalid
+end
+
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn
+  attr_accessor :price
+
+  def initialize(isbn,price)
+    if isbn.length==0|| price<=0
+      raise ArgumentError
+    end
+    @isbn=isbn
+    @price=price
+  end
+
+
+
+  def price_as_string()
+    return "$"+ '%.2f' % @price
+  end
 end
+
+
+
