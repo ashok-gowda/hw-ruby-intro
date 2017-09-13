@@ -25,12 +25,12 @@ def max_2_sum(arr)
 return sum
 end
 
-def sum_to_n?(arr=[1,2,3,4,5],n=5)
+def sum_to_n?(arr=[3,0,5],n=5)
   if arr.length==0 || arr.length==1
      return false
   else
-    for i in (0..arr.length)
-      for j in (i+1..arr.length)
+    for i in (0..arr.length-2)
+      for j in (i+1..arr.length-1)
         if arr[i]+arr[j]==n
           return true
         end
@@ -39,7 +39,7 @@ def sum_to_n?(arr=[1,2,3,4,5],n=5)
     return false
   end
 end
-
+puts sum_to_n?()
 # Part 2
 
 def hello(name)
