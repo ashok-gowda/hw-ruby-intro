@@ -25,7 +25,7 @@ def max_2_sum(arr)
 return sum
 end
 
-def sum_to_n?(arr=[3,0,5],n=5)
+def sum_to_n?(arr,n)
   if arr.length==0 || arr.length==1
      return false
   else
@@ -39,16 +39,29 @@ def sum_to_n?(arr=[3,0,5],n=5)
     return false
   end
 end
-puts sum_to_n?()
+
 # Part 2
 
 def hello(name)
   return "Hello, "+name
 end
 
-def starts_with_consonant? s
+def starts_with_consonant?(s)
   # YOUR CODE HERE
+  result=true
+  if s.length==0
+    result=false
+  elsif !s[0,1].match(/^[[:alpha:]]$/)
+    result=false
+  else
+    array_consonants=['a','e','i','o','u']
+    if array_consonants.include?(s.downcase[0,1])
+      result=false
+    end
+   end
+  return result
 end
+
 
 def binary_multiple_of_4? s
   # YOUR CODE HERE
